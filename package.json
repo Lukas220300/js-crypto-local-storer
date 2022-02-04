@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/Lukas220300/js-crypto-local-storer/issues"
   },
-  "homepage": "https://github.com/Lukas220300/js-crypto-local-storer#readme"
+  "homepage": "https://github.com/Lukas220300/js-crypto-local-storer#readme",
+  "dependencies": {
+    "idb": "^7.0.0"
+  }
 }
