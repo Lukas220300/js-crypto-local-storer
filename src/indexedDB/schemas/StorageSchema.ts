@@ -10,7 +10,10 @@ export interface StorageSchema extends DBSchema {
     },
     ECDH_PRIVATE_KEYS: {
         key: string,
-        value: string,
+        value: {
+            material: Uint8Array,
+            key: string,
+        },
     },
     ECDH_PUBLIC_KEYS: {
         key: string,
