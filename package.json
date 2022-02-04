@@ -1,6 +1,6 @@
 {
   "name": "js-crypto-local-storer",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A module to abstract the storing process for store keys on local device",
   "main": "src/index.ts",
   "scripts": {
