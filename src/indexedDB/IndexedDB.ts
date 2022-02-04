@@ -8,5 +8,4 @@ export class IndexedDB<Schema> implements KeyStorage {
     }
 
 
-
 }
