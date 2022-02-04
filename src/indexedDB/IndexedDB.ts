@@ -2,6 +2,7 @@ import {KeyStorage} from "../interfaces/KeyStorage";
 import {IDBPDatabase} from "idb/build/entry";
 import {StorageSchema} from "./schemas/StorageSchema";
 import {KeyTypes} from "../enums/KeyTypes";
+import {KeyWithMaterial} from "../interfaces/KeyWithMaterial";
 
 export class IndexedDB implements KeyStorage {
 
@@ -20,7 +21,7 @@ export class IndexedDB implements KeyStorage {
         return this.indexedDb.put(keyType, {salt,key}, identifier)
     }
 
-    getKey(keyType: KeyTypes.ECDH_PRIVATE_KEY | KeyTypes.ECDH_PUBLIC_KEY | KeyTypes.RSA_PRIVATE_KEY | KeyTypes.RSA_PUBLIC_KEY, identifier: string): Promise<string|JsonWebKey> {
+    getKey(keyType: KeyTypes.ECDH_PRIVATE_KEY | KeyTypes.ECDH_PUBLIC_KEY | KeyTypes.RSA_PRIVATE_KEY | KeyTypes.RSA_PUBLIC_KEY, identifier: string): Promise<string|JsonWebKey|KeyWithMaterial> {
         return this.indexedDb.get(keyType, identifier)
     }
 
