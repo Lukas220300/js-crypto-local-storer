@@ -13,7 +13,7 @@ export interface StorageSchema extends DBSchema {
         value: {
             material: Uint8Array,
             key: string,
-        },
+        } | JsonWebKey,
     },
     ECDH_PUBLIC_KEYS: {
         key: string,
