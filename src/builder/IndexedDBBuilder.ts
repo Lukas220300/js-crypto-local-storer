@@ -3,6 +3,7 @@ import {openDB, IDBPDatabase, IDBPTransaction, StoreNames} from "idb";
 import {StorageSchema} from "../indexedDB/schemas/StorageSchema";
 import {IndexedDB} from "../indexedDB/IndexedDB";
 import {KeyStorage} from "../interfaces/KeyStorage";
+import {KeyTypes} from "../enums/KeyTypes";
 
 export default class IndexedDBBuilder implements StorageBuilder {
 
@@ -11,17 +12,17 @@ export default class IndexedDBBuilder implements StorageBuilder {
         const dataBase = await openDB<StorageSchema>(storageName, storageVersion, {
             upgrade(database: IDBPDatabase<StorageSchema>, oldVersion: number, newVersion: number | null, transaction: IDBPTransaction<StorageSchema, StoreNames<StorageSchema>[], "versionchange">) {
                 // pbkdf
-                database.createObjectStore('pbkdf')
+                database.createObjectStore(KeyTypes.PBKDF2_KEY)
                 // ecdhPrivateKeys
-                database.createObjectStore('ecdhPrivateKeys')
+                database.createObjectStore(KeyTypes.ECDH_PRIVATE_KEY)
                 // ecdhPublicKeys
-                database.createObjectStore('ecdhPublicKeys')
+                database.createObjectStore(KeyTypes.ECDH_PUBLIC_KEY)
                 // asymmetricPrivateKeys
-                database.createObjectStore('asymmetricPrivateKeys')
+                database.createObjectStore(KeyTypes.RSA_PRIVATE_KEY)
                 // asymmetricPublicKeys
-                database.createObjectStore('asymmetricPublicKeys')
+                database.createObjectStore(KeyTypes.RSA_PUBLIC_KEY)
                 // aesKeys
-                database.createObjectStore('aesKeys')
+                database.createObjectStore(KeyTypes.AES_KEY)
             },
             blocked() {
                 console.log('dd466409-8e13-43df-b039-1e6ad5528121 :: blocked')

@@ -4,25 +4,25 @@
 - remove all data
 
 ### tables
-- pbkdf
-  - key: uuid
+- pbkdf (PBKDF_KEYS)
+  - key: uuid : string
   - value: object
-    - salt
+    - salt : Uint8Array
     - pbkdf-Key as jwk (plaintext) 
-- ecdhPrivateKeys
-  - key: user identifier
-  - value: key as jwk (encrypted)
-- ecdhPublicKeys
-  - key: user identifier
-  - value: key as jwk (plaintext)
-- asymmetricPrivateKeys
-  - key: user identifier
-  - value: key as jwk (encrypted)
-- asymmetricPublicKeys
-  - key: user identifier
-  - value: key as jwk (plaintext)
-- aesKeys
-  - key: identifier uuid
+- ecdhPrivateKeys (ECDH_PRIVATE_KEYS)
+  - key: user identifier string
+  - value: key as jwk (encrypted) string
+- ecdhPublicKeys (ECDH_PUBLIC_KEYS)
+  - key: user identifier string
+  - value: key as jwk (plaintext) string
+- asymmetricPrivateKeys (RSA_PRIVATE_KEYS)
+  - key: user identifier string
+  - value: key as jwk (encrypted) string
+- asymmetricPublicKeys (RSA_PUBLIC_KEYS)
+  - key: user identifier string
+  - value: key as jwk (plaintext) string
+- aesKeys (AES_KEYS)
+  - key: identifier uuid string
   - value: object
-    - iv
-    - key as jwk (encrypted)
+    - iv : Uint8Array
+    - key as jwk (encrypted) string

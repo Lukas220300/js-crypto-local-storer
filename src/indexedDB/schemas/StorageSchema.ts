@@ -1,30 +1,30 @@
 import {DBSchema} from "idb";
 
 export interface StorageSchema extends DBSchema {
-    pbkdf: {
+    PBKDF_KEYS: {
         key: string,
         value: {
             salt: Uint8Array,
             key: JsonWebKey,
         },
     },
-    ecdhPrivateKeys: {
+    ECDH_PRIVATE_KEYS: {
         key: string,
         value: string,
     },
-    ecdhPublicKeys: {
+    ECDH_PUBLIC_KEYS: {
         key: string,
         value: JsonWebKey,
     },
-    asymmetricPrivateKeys: {
+    RSA_PRIVATE_KEYS: {
         key: string,
         value: string,
     },
-    asymmetricPublicKeys: {
+    RSA_PUBLIC_KEYS: {
         key: string,
         value: JsonWebKey,
     },
-    aesKeys: {
+    AES_KEYS: {
         key: string,
         value: {
             iv: Uint8Array,
