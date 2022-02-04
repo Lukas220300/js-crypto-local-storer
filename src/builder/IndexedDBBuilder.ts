@@ -8,7 +8,6 @@ export default class IndexedDBBuilder implements StorageBuilder {
 
     // @ts-ignore
     async buildStorage(storageName: string, storageVersion: number): Promise<KeyStorage> {
-
         const dataBase = await openDB<StorageSchema>(storageName, storageVersion, {
             upgrade(database: IDBPDatabase<StorageSchema>, oldVersion: number, newVersion: number | null, transaction: IDBPTransaction<StorageSchema, StoreNames<StorageSchema>[], "versionchange">) {
                 // pbkdf
