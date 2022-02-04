@@ -6,7 +6,9 @@
 ### tables
 - pbkdf
   - key: uuid
-  - value: pbkdf-Key as jwk (plaintext) 
+  - value: object
+    - salt
+    - pbkdf-Key as jwk (plaintext) 
 - ecdhPrivateKeys
   - key: user identifier
   - value: key as jwk (encrypted)
@@ -21,4 +23,6 @@
   - value: key as jwk (plaintext)
 - aesKeys
   - key: identifier uuid
-  - value: key as jwk (encrypted)
+  - value: object
+    - iv
+    - key as jwk (encrypted)

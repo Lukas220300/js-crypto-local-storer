@@ -7,7 +7,7 @@ import {KeyStorage} from "../interfaces/KeyStorage";
 export default class IndexedDBBuilder implements StorageBuilder {
 
     // @ts-ignore
-    async buildStorage(storageName: string, storageVersion: number): Promise<KeyStorage> {
+    async buildStorage(storageName: string, storageVersion: number, terminatedCallback: Function): Promise<KeyStorage> {
         const dataBase = await openDB<StorageSchema>(storageName, storageVersion, {
             upgrade(database: IDBPDatabase<StorageSchema>, oldVersion: number, newVersion: number | null, transaction: IDBPTransaction<StorageSchema, StoreNames<StorageSchema>[], "versionchange">) {
                 // pbkdf
@@ -30,7 +30,8 @@ export default class IndexedDBBuilder implements StorageBuilder {
                 console.log('4147a0d4-c951-4ad9-bf4a-9bb63ee0ac8b :: blocking')
             },
             terminated() {
-                console.log('28069a30-b3f2-4e2f-ba2c-f6e0c85f4654 :: terminated')
+                console.debug('28069a30-b3f2-4e2f-ba2c-f6e0c85f4654 :: terminated')
+                terminatedCallback()
             }
         })
 

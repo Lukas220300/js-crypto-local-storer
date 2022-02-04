@@ -3,7 +3,10 @@ import {DBSchema} from "idb";
 export interface StorageSchema extends DBSchema {
     pbkdf: {
         key: string,
-        value: JsonWebKey,
+        value: {
+            salt: Uint8Array,
+            key: JsonWebKey,
+        },
     },
     ecdhPrivateKeys: {
         key: string,
@@ -23,6 +26,9 @@ export interface StorageSchema extends DBSchema {
     },
     aesKeys: {
         key: string,
-        value: string,
+        value: {
+            iv: Uint8Array,
+            key: string,
+        },
     },
 }
