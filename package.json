@@ -1,0 +1,28 @@
+{
+  "name": "js-crypto-local-storer",
+  "version": "1.0.0",
+  "description": "A module to abstract the storing process for store keys on local device",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lukas220300/js-crypto-local-storer.git"
+  },
+  "keywords": [
+    "crypto",
+    "TypeScript",
+    "IndexedDB",
+    "store",
+    "storer",
+    "local",
+    "onDevice"
+  ],
+  "author": "Lukas Schönbeck",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Lukas220300/js-crypto-local-storer/issues"
+  },
+  "homepage": "https://github.com/Lukas220300/js-crypto-local-storer#readme"
+}
