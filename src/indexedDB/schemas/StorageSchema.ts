@@ -30,8 +30,8 @@ export interface StorageSchema extends DBSchema {
     AES_KEYS: {
         key: string,
         value: {
-            iv: Uint8Array,
+            material: Uint8Array,
             key: string,
-        },
+        } | string | JsonWebKey,
     },
 }

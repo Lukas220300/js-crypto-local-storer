@@ -10,7 +10,7 @@ export class IndexedDB implements KeyStorage {
     }
 
     saveAESKey(keyType: KeyTypes.AES_KEY, identifier: string, key: string, iv: Uint8Array): Promise<string> {
-        return this.indexedDb.put(keyType, {iv,key}, identifier)
+        return this.indexedDb.put(keyType, {material:iv,key}, identifier)
     }
 
     saveAsymmetricKey(keyType: KeyTypes.ECDH_PRIVATE_KEY | KeyTypes.ECDH_PUBLIC_KEY | KeyTypes.RSA_PRIVATE_KEY | KeyTypes.RSA_PUBLIC_KEY, identifier: string, key: string | JsonWebKey): Promise<string> {
