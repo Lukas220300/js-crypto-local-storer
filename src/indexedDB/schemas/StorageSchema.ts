@@ -1,4 +1,5 @@
 import {DBSchema} from "idb";
+import {KeyWithMaterial} from "../../interfaces/KeyWithMaterial";
 
 export interface StorageSchema extends DBSchema {
     PBKDF_KEYS: {
@@ -21,7 +22,7 @@ export interface StorageSchema extends DBSchema {
     },
     RSA_PRIVATE_KEYS: {
         key: string,
-        value: string,
+        value: string | JsonWebKey | KeyWithMaterial,
     },
     RSA_PUBLIC_KEYS: {
         key: string,
