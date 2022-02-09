@@ -21,7 +21,7 @@ export class IndexedDB implements KeyStorage {
         return this.indexedDb.put(keyType, {salt,key}, identifier)
     }
 
-    getKey(keyType: KeyTypes.ECDH_PRIVATE_KEY | KeyTypes.ECDH_PUBLIC_KEY | KeyTypes.RSA_PRIVATE_KEY | KeyTypes.RSA_PUBLIC_KEY, identifier: string): Promise<string|JsonWebKey|KeyWithMaterial> {
+    getKey(keyType: KeyTypes.ECDH_PRIVATE_KEY | KeyTypes.ECDH_PUBLIC_KEY | KeyTypes.RSA_PRIVATE_KEY | KeyTypes.RSA_PUBLIC_KEY, identifier: string): Promise<string|JsonWebKey|KeyWithMaterial|undefined> {
         return this.indexedDb.get(keyType, identifier)
     }
 
